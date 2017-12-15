@@ -1,0 +1,5 @@
+logo-1.jpg -> https://i.pinimg.com/736x/8c/71/7f/8c717ff0f12d74f7e916e4317e40b9ad--cat-logo-logotype.jpg
+logo-2.jpg -> https://cdn.dribbble.com/users/24078/screenshots/1863126/line_cat.jpg
+logo-3.jpg -> https://i.pinimg.com/736x/eb/ba/7c/ebba7cfa4bc0888d5a95e704fad1e409--logo-cat-cat-logo-design.jpg
+logo-4.png -> https://cdn.dribbble.com/users/604988/screenshots/2662158/ahri_logo.png
+logo-5.png -> http://logo.pizza/img/cat-walk/card.png

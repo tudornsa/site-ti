@@ -1,0 +1,155 @@
+body{
+    margin: 0;
+}
+
+.bg{
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    top: 0;
+    background-image: url(../imagini/artwork/girl_headphones_filter.jpg);
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-color: rgb(48, 48, 48);
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+.bg>h1{
+    margin: 0;
+    position: relative;
+
+    font-family: "Quicksand", sans-serif;
+    font-size: 170px;
+    font-weight: 300;
+    line-height: 80%;
+
+    /*color: rgb(255, 15, 107);*/
+    color: white;
+}
+.bg>h2{
+    margin: 0;
+    position: relative;
+    
+    font-family: "Quicksand", sans-serif;
+    font-size: 40px;
+    font-weight: 300;
+
+    /*color: rgb(255, 15, 107);*/
+    color: white;
+}
+.bg>h3{
+    margin: 0 auto 50px;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    
+    font-family: "Quicksand", sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+
+    /*color: rgb(255, 15, 107);*/
+    color: rgb(255, 255, 255);
+}
+.bg-dimmed{
+    background-color: rgba(39, 39, 39, 0.432);
+}
+
+#join-now{
+    z-index: -1;
+    box-sizing: border-box;
+    border: 1px solid white;
+    border-radius: 0px;
+    padding: 1px 5px 3px 4px;
+    cursor: pointer;
+}
+#join-now:hover{
+    background-color: rgba(255, 255, 255, 0.925);
+    color: rgb(255, 15, 107);
+}
+
+header{
+    z-index: 1;
+    text-align: center;
+    font-family: "Quicksand", sans-serif;
+    font-weight: 300;
+    height: 80px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    margin-bottom: 50px;
+}
+
+.logo{
+    width:  50px;
+    height: 50px;
+    position: relative;
+    top: 15px;
+}
+
+#navbar{
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 5%;
+}
+
+#menu{
+    margin: 0;
+    padding: 0;
+}
+
+#menu>li{
+    display: inline-block;
+    margin-right: 25px;
+    list-style-type: none;
+    position: relative;
+}
+
+.item{
+    display: block;
+    width: 80px;
+    color: white;
+    text-decoration: none;
+    padding: 30px 10px 28px;
+}
+.item::before{
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    /*background-color: rgb(202, 34, 232);*/
+    background-color: white;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transition: all ease-in-out 250ms;
+}
+.item:hover::before{
+    width: 100%;
+}
+
+article.content{
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    margin-top: 150px;
+    visibility: hidden;
+}
+
+@keyframes form-animation-in{
+    0%   { left: -800px; }
+    50%  { left: 10px; }
+    80%  { left: 0; }
+    100% { left: 0; }
+}
+@keyframes form-animation-out{
+    0%   { left: 0; }
+    100% { left: 1500px; }
+}
