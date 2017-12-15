@@ -16,7 +16,7 @@
 <body>
     <?php
         if(isset($_SESSION['user'])){
-            include "app.php";
+            include "app/app.php";
         }else{
             if(isset($_SESSION['error'])){
                 echo $_SESSION['error'];
