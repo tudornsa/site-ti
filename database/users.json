@@ -1,13 +1,1 @@
-{
-    "users":[
-        {
-            "username": "admin",
-            "password": "1234"
-        },
-        {
-            "username": "admin",
-            "password": "1234"
-        }
-
-    ]
-}
+[{"username":"admin","email":"admin@email.com","password":"1234"},{"username":"tudor","email":"ioneasa.tudor@gmail.com","password":"oparolacorecta"}]
