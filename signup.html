@@ -25,22 +25,22 @@
         </g>
     </svg>
     <h2>Sign Up</h2>
-    <form class="signup-form">
+    <form class="signup-form" action="signup.php" method="post">
         <div class="input-div">
             <span class="field-span">Username</span>
-            <input class="input-item" type="text" autocomplete="off" autofocus="autofocus" maxlength="50" aria-required="true"/>
+            <input name="username" class="input-item" type="text" autocomplete="off" autofocus="autofocus" maxlength="50" aria-required="true"/>
         </div>
         <div class="input-div">
             <span class="field-span">Email</span>
-            <input class="input-item" type="text" autocomplete="off" maxlength="50" aria-required="true"/>
+            <input name="email" class="input-item" type="text" autocomplete="off" maxlength="50" aria-required="true"/>
         </div>
         <div class="input-div">
             <span class="field-span">Password</span>
-            <input class="input-item" type="password" autocomplete="off" maxlength="50" aria-required="true"/>
+            <input name="password" class="input-item" type="password" autocomplete="off" maxlength="50" aria-required="true"/>
         </div>
         <div class="input-div">
             <span class="field-span">Confirm Password</span>
-            <input class="input-item" type="password" autocomplete="off" maxlength="50" aria-required="true"/>
+            <input name="password-c" class="input-item" type="password" autocomplete="off" maxlength="50" aria-required="true"/>
         </div>
         <input class="button" onclick="submitSignUp()" type="submit" value="Sign Up"/>
     </form>
