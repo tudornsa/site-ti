@@ -56,6 +56,9 @@ function onSearch() {
 }
 
 function addFooter(artwork, title, id){
+    if(artwork == null){
+        artwork = "imagini/logo/PNG/logo.png";
+    }
     //add footer player
     document.getElementById("player").innerHTML = 
     "<img src='"+ artwork +"' id='avatar'/>" +

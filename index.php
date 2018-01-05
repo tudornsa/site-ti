@@ -1,5 +1,6 @@
 <?php
     session_start();
+    //TODO: Verifica input utilizator
 ?>
 <!DOCTYPE html>
 <html lang="en">
