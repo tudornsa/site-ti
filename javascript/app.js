@@ -23,15 +23,15 @@ function performSearch(){
         trackList = tracks; //Put tracks in global variable
         tracks.forEach(function(item){
             //console.log(item.title);
-            //Adds div tags with data and a button to play or pause song
-            //TODO: if no image, use default or sth
+          
             var artwork = item.artwork_url;
             var title = item.title;
 
             if(artwork == null){
                 artwork = "imagini/logo/PNG/logo.png";
             }
-
+            
+            //Adds div tags with data and a button to play or pause song
             document.getElementById("content").insertAdjacentHTML("beforeend", "<div class='song' id='track-" + j + "'><img src='" + artwork + "'/><h3>" + title + "</h3><button id='play-" + j++ +"' onclick='toggle(" + i++ + ")'></button></div>");
         });
     });
@@ -55,12 +55,26 @@ function onSearch() {
     }
 }
 
+function addFooter(artwork, title, id){
+    //add footer player
+    document.getElementById("player").innerHTML = 
+    "<img src='"+ artwork +"' id='avatar'/>" +
+    "<h5 id='title'>"+ title +"</h5>" + 
+    "<button id='footer-play-btn' onclick='toggle("+ id + ")'></button>";
+}
+
 function toggle(i) { //Press play/pause
+    var artwork = trackList[i].artwork_url;
+    var title = trackList[i].title;
+
     if(player == null){//First time you press play, creates new player
         SC.stream('/tracks/' + trackList[i].id).then(function(stream){
             document.getElementById("play-" + i).textContent = "Pause";
             document.getElementById("play-" + i).style.background = "url('imagini/icons/pause-btn.png') no-repeat center center";
             document.getElementById("play-" + i).style.backgroundSize = "70px";
+
+            addFooter(artwork, title, i);
+
             //changes button text
             flag = i;//set flag to current button
             player = stream;
@@ -77,6 +91,8 @@ function toggle(i) { //Press play/pause
                 buttons[j].textContent = "Play";
                 buttons[j].style.background = "url('imagini/icons/play-btn.png') no-repeat center center";
                 buttons[j].style.backgroundSize = "70px";
+                
+                addFooter(artwork, title, i);
             }
         }
         //Create new player for the new song
@@ -84,6 +100,7 @@ function toggle(i) { //Press play/pause
             document.getElementById("play-" + i).textContent = "Pause";
             document.getElementById("play-" + i).style.background = "url('imagini/icons/pause-btn.png') no-repeat center center";
             document.getElementById("play-" + i).style.backgroundSize = "70px";
+
             flag = i;//set flag to new button
             player = stream;
             player.play();
@@ -94,11 +111,19 @@ function toggle(i) { //Press play/pause
             document.getElementById("play-" + i).textContent = "Pause";
             document.getElementById("play-" + i).style.background = "url('imagini/icons/pause-btn.png') no-repeat center center";
             document.getElementById("play-" + i).style.backgroundSize = "70px";
+
+            document.getElementById("footer-play-btn").style.background = "url('imagini/icons/pause-btn.png') no-repeat center center";
+            document.getElementById("footer-play-btn").style.backgroundSize = "50px";
+
             player.play();
         }else if(document.getElementById("play-" + i).textContent == "Pause"){
             document.getElementById("play-" + i).textContent = "Play";
             document.getElementById("play-" + i).style.background = "url('imagini/icons/play-btn.png') no-repeat center center";
             document.getElementById("play-" + i).style.backgroundSize = "70px";
+
+            document.getElementById("footer-play-btn").style.background = "url('imagini/icons/play-btn.png') no-repeat center center";
+            document.getElementById("footer-play-btn").style.backgroundSize = "50px";
+            
             player.pause();
         }
     }

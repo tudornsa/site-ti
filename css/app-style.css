@@ -2,24 +2,21 @@ body{
     background-color: rgb(43, 43, 43);
     font-family: "Quicksand", sans-serif;
     font-weight: 300;
-
 }
 
 #logout-a{
     position: absolute;
-    top:-6px;
     left: 102px;
-
 }
+
 #logout-btn{
-    padding-bottom: 10px;
     background-color: transparent;
-    border: 2px solid red;
     width: 80px;
     color: white;
     text-decoration: none;
     padding: 30px 10px 28px;
     cursor: pointer;
+    border: 0;
 }
 
 #navbar>form{
@@ -74,6 +71,7 @@ body{
 
 .song{
     float: left;
+    display: block;
     position: relative;
     background-color: rgb(20, 20, 20);
 
@@ -122,11 +120,60 @@ body{
     outline: 0;
 }
 
-#logout-btn{
-    border: 0;
-    margin: 0;
-    position: absolute;
-    top: 10px;
-    right:0;
+#player{
+    z-index: 1;
+    background-color: black;
+    color: white;
+    border: 1px solid red;
+    width: 100%;
+    height: 100px;
+    position: fixed;
+    bottom: 0;
+
+    text-align: center;
 }
 
+#avatar{
+    width: 80px;
+    height: 80px;
+    position: absolute;
+    left: 50px;
+    bottom: 10px;
+}
+
+#footer-play-btn{
+    background: url("../imagini/icons/pause-btn.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover; 
+
+    text-indent: -9999px;
+    white-space: nowrap;
+    overflow: hidden;
+
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 25px;
+
+    border: 0;
+}
+#footer-play-btn:focus{
+    outline: 0;
+}
+
+#title{
+    position: absolute;
+    left: 150px;
+    bottom: 20px;
+    max-width: 300px;
+}
+
+.clearfix::before,
+.clearfix::after{
+    content: " ";
+    display: block;
+}
+.clearfix::after{
+    clear: both;
+}
