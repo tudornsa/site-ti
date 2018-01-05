@@ -12,6 +12,7 @@
     <link href="css/login-signup-style.css" rel="stylesheet" type="text/css" />
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
     <script src="javascript/script.js"></script>
+    <script src="https://connect.soundcloud.com/sdk/sdk-3.2.2.js"></script>
 </head>
 <body>
     <?php

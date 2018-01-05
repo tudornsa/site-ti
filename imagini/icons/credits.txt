@@ -1,0 +1,2 @@
+search-slim-icon -> https://cdn2.iconfinder.com/data/icons/ios-7-icons/50/search-128.png
+play-button -> http://soundshareapp.com/assets/images/tours/play-button.png
