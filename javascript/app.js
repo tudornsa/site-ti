@@ -8,7 +8,7 @@ SC.initialize({
 var player = null;
 var flag = null;
 
-var trackList; //List of tracks
+var trackList = []; //List of tracks
 var searched = false; //Flag to check if search was performed
 
 
@@ -137,4 +137,35 @@ function toggle(i) { //Press play/pause
             player.pause();
         }
     }
+}
+
+function populate(){
+    var trackId = [97278798, 139988336, 88038665, 60289612];
+    var i = 0, j = 0;
+    document.getElementById("content").innerHTML = "<h2>Hot This Week on HalfCat</h2>";
+    for(var index = 0; index < trackId.length; index++){
+        SC.get('/tracks/' + trackId[index], {
+            limit: 1 //only 1 song
+        }).then(function(track){
+
+            var artwork = track.artwork_url;
+            var title = track.title;
+
+            //add to global track list
+            trackList.push(track);
+    
+            if(artwork == null){
+                artwork = "imagini/logo/PNG/logo.png";
+            }
+                
+            //Adds div tags with data and a button to play or pause song
+            document.getElementById("content").innerHTML += "<div class='song hot-song' id='track-" + j + "'><img src='" + artwork + "'/><h3>" + title + "</h3><button id='play-" + j++ +"' onclick='toggle(" + i++ + ")'>Play</button></div>";
+
+            
+            });
+
+            
+    }
+                
+    //console.log(trackList);
 }

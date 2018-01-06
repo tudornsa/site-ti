@@ -18,7 +18,7 @@
     <link href="https://fonts.googleapis.com/css?family=Quicksand:300,400" rel="stylesheet">
     <script src="javascript/app.js"></script>
 </head>
-<body>
+<body onload="populate()">
     <header>
         <a href="index.php">
             <svg class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 372.97 338.15">
@@ -49,8 +49,6 @@
         
         <a id="logout-a" href='api/logout.php'><input id="logout-btn" type='button' value='Log Out'/></a>
     </header>
-    <div id="content">
-        <h2>Hot this week</h2>
-    </div>
-    <footer class="clearfix" id="player"></footer>
+    <div id="content" class="clearfix"></div>
+    <footer id="player"></footer>
 </body>

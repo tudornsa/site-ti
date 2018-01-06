@@ -69,6 +69,7 @@ body{
     margin-top: 90px;
     margin-left: 60px;
     margin-right: 0px;
+    margin-bottom: 100px;
     text-align: center;
 }
 
@@ -137,6 +138,7 @@ body{
     bottom: 0;
 
     text-align: center;
+    border-top: 1px solid rgb(0, 0, 0);
 }
 
 #avatar{
@@ -171,7 +173,7 @@ body{
 #title{
     position: absolute;
     left: 150px;
-    bottom: 20px;
+    top: 10px;
     max-width: 300px;
     font-size: 15px;
 }
