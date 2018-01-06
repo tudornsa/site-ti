@@ -10,9 +10,10 @@
     background-size: cover; 
 
     display: block;
-    height: 100%;
+    height: 100vh;
     text-align: center;
     position: relative;
+    top: -150px;
     margin: 0 auto;
 
     min-height: 450px;
@@ -26,6 +27,7 @@
 
     overflow: auto;
 }
+
 .signup{
     max-height: 700px;
 }
@@ -96,7 +98,7 @@ h2{
     /*color: rgb(255, 15, 107);*/
     cursor: pointer;
     position: relative;
-    top: 90px;
+    top: 50px;
     font-size: 15px;
 }
 
