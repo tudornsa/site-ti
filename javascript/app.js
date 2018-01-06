@@ -41,6 +41,8 @@ function onSearch() {
     window.event.preventDefault();
     //TODO: if nothing found, say so
     if(searched == false){ //first search performed, so nothing to get rid of
+        //Clear initial content
+        document.getElementById("content").innerHTML = "";
         performSearch();
         searched = true;
     }else{//Searched at least once, so must clear previos search results in order to get the new ones
@@ -56,6 +58,8 @@ function onSearch() {
 }
 
 function addFooter(artwork, title, id){
+    document.getElementById("player").innerHTML = "";
+
     if(artwork == null){
         artwork = "imagini/logo/PNG/logo.png";
     }
@@ -95,7 +99,6 @@ function toggle(i) { //Press play/pause
                 buttons[j].style.background = "url('imagini/icons/play-btn.png') no-repeat center center";
                 buttons[j].style.backgroundSize = "70px";
                 
-                addFooter(artwork, title, i);
             }
         }
         //Create new player for the new song
@@ -104,6 +107,8 @@ function toggle(i) { //Press play/pause
             document.getElementById("play-" + i).style.background = "url('imagini/icons/pause-btn.png') no-repeat center center";
             document.getElementById("play-" + i).style.backgroundSize = "70px";
 
+            addFooter(artwork, title, i);
+            
             flag = i;//set flag to new button
             player = stream;
             player.play();
@@ -118,6 +123,7 @@ function toggle(i) { //Press play/pause
             document.getElementById("footer-play-btn").style.background = "url('imagini/icons/pause-btn.png') no-repeat center center";
             document.getElementById("footer-play-btn").style.backgroundSize = "50px";
 
+
             player.play();
         }else if(document.getElementById("play-" + i).textContent == "Pause"){
             document.getElementById("play-" + i).textContent = "Play";
@@ -127,6 +133,7 @@ function toggle(i) { //Press play/pause
             document.getElementById("footer-play-btn").style.background = "url('imagini/icons/play-btn.png') no-repeat center center";
             document.getElementById("footer-play-btn").style.backgroundSize = "50px";
             
+
             player.pause();
         }
     }

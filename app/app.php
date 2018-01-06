@@ -49,6 +49,8 @@
         
         <a id="logout-a" href='api/logout.php'><input id="logout-btn" type='button' value='Log Out'/></a>
     </header>
-    <div id="content"></div>
+    <div id="content">
+        <h2>Hot this week</h2>
+    </div>
     <footer class="clearfix" id="player"></footer>
 </body>
