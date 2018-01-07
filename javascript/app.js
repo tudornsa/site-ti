@@ -77,6 +77,7 @@ function toggle(i) { //Press play/pause
     var title = trackList[i].title;
 
     if(player == null){//First time you press play, creates new player
+        SC.stream.activateAudioElement();
         SC.stream('/tracks/' + trackList[i].id).then(function(stream){
             document.getElementById("play-" + i).textContent = "Pause";
             document.getElementById("play-" + i).style.background = "url('imagini/icons/pause-btn.png') no-repeat center center";
@@ -104,7 +105,11 @@ function toggle(i) { //Press play/pause
             }
         }
         //Create new player for the new song
-        SC.stream('/tracks/' + trackList[i].id).then(function(stream){
+        SC.stream.activateAudioElement();
+        SC.stream('/tracks/' + trackList[i].id, {
+            useHTML5Audio: true,
+            debugMode: true
+        }).then(function(stream){
             document.getElementById("play-" + i).textContent = "Pause";
             document.getElementById("play-" + i).style.background = "url('imagini/icons/pause-btn.png') no-repeat center center";
             document.getElementById("play-" + i).style.backgroundSize = "70px";
