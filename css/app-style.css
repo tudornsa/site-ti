@@ -82,8 +82,7 @@ body{
 
 #content{
     margin-top: 90px;
-    margin-left: 7%;
-    margin-right: 7%;
+    padding-left: 4.5%;
     margin-bottom: 100px;
     text-align: center;
 }
@@ -205,8 +204,8 @@ body{
 }
 
 .hot-song{
-    width: 300px;
-    height: 300px;
+    width: 270px;
+    height: 270px;
     border-radius: 2.5%;
 }
 
