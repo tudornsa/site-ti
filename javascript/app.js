@@ -39,6 +39,8 @@ function performSearch(){
 
 function onSearch() {
     window.event.preventDefault();
+    document.getElementById("content").style.paddingLeft = "50px";
+    document.getElementById("content").style.paddingRight = "40px";
     //TODO: if nothing found, say so
     if(searched == false){ //first search performed, so nothing to get rid of
         //Clear initial content
@@ -140,7 +142,7 @@ function toggle(i) { //Press play/pause
 }
 
 function populate(){
-    var trackId = [97278798,97278798,97278798, 174476240, 88038665, 60289612, 244894351, 195728711, 348605798, 243703866, 300216295, 178043838];
+    var trackId = [155621254, 156613180, 97278798, 174476240, 88038665, 60289612, 244894351, 195728711, 348605798, 243703866, 300216295, 178043838];
     var i = 0, j = 0;
     document.getElementById("content").innerHTML += "<h2>Recommended for you</h2>";
     for(var index = 0; index < trackId.length; index++){
