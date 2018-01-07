@@ -140,9 +140,9 @@ function toggle(i) { //Press play/pause
 }
 
 function populate(){
-    var trackId = [97278798, 139988336, 88038665, 60289612];
+    var trackId = [97278798, 174476240, 88038665, 60289612, 244894351, 195728711, 348605798, 243703866, 300216295, 178043838];
     var i = 0, j = 0;
-    document.getElementById("content").innerHTML = "<h2>Hot This Week on HalfCat</h2>";
+    document.getElementById("content").innerHTML += "<h2>For you</h2>";
     for(var index = 0; index < trackId.length; index++){
         SC.get('/tracks/' + trackId[index], {
             limit: 1 //only 1 song
@@ -166,6 +166,8 @@ function populate(){
 
             
     }
+
+    
                 
     //console.log(trackList);
 }
