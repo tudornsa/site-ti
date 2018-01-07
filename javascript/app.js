@@ -40,7 +40,7 @@ function performSearch(){
 function onSearch() {
     window.event.preventDefault();
     document.getElementById("content").style.paddingLeft = "50px";
-    document.getElementById("content").style.paddingRight = "40px";
+    document.getElementById("content").style.paddingRight = "30px";
     //TODO: if nothing found, say so
     if(searched == false){ //first search performed, so nothing to get rid of
         //Clear initial content
