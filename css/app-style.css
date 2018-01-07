@@ -139,9 +139,11 @@ body{
     margin: 0;
     border: 0;
 }
-
 .song>button:focus{
     outline: 0;
+}
+.song>button::-moz-focus-inner{
+    border: 0;
 }
 
 #content>h2{

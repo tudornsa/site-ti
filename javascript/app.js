@@ -13,7 +13,6 @@ var searched = false; //Flag to check if search was performed
 
 
 function performSearch(){
-    window.event.preventDefault();
     SC.get('/tracks', {
         q: document.getElementById("search-param").value // gets tracks using search word from user
     }).then(function(tracks){
@@ -37,8 +36,8 @@ function performSearch(){
     });
 }
 
-function onSearch() {
-    window.event.preventDefault();
+function onSearch(event) {
+    event.preventDefault();
     document.getElementById("content").style.paddingLeft = "50px";
     document.getElementById("content").style.paddingRight = "30px";
     //TODO: if nothing found, say so

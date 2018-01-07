@@ -43,7 +43,7 @@
         <nav id="navbar">
             <form>
                 <input type="text" id="search-param"/>
-                <input type="submit" onclick="onSearch(); return false" value="" id="search-btn"/>
+                <input type="submit" onclick="onSearch(event); return false" value="" id="search-btn"/>
             </form>
         </nav>
         
