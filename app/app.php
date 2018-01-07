@@ -49,7 +49,7 @@
         
         <a id="logout-a" href='api/logout.php'><input id="logout-btn" type='button' value='Log Out'/></a>
         <?php
-            echo "<h4 id='user'>".$_SESSION['user']."</h4>";
+            echo "<h4 id='user'>".ucfirst($_SESSION['user'])."</h4>";
         ?>
     </header>
     
