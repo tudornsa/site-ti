@@ -59,6 +59,7 @@ function onSearch(event) {
 }
 
 function addFooter(artwork, title, id){
+    document.getElementById("player").style.height = "100px";
     document.getElementById("player").innerHTML = "";
 
     if(artwork == null){
@@ -143,7 +144,7 @@ function toggle(i) { //Press play/pause
 function populate(){
     var trackId = [155621254, 156613180, 97278798, 174476240, 88038665, 60289612, 244894351, 195728711, 348605798, 243703866, 300216295, 178043838];
     var i = 0, j = 0;
-    document.getElementById("content").innerHTML += "<h2>Recommended for you</h2>";
+    document.getElementById("content").innerHTML = "<h2>Recommended for you</h2>";
     for(var index = 0; index < trackId.length; index++){
         SC.get('/tracks/' + trackId[index], {
             limit: 1 //only 1 song
@@ -161,14 +162,6 @@ function populate(){
                 
             //Adds div tags with data and a button to play or pause song
             document.getElementById("content").innerHTML += "<div class='song hot-song' id='track-" + j + "'><img src='" + artwork + "'/><h3>" + title + "</h3><button id='play-" + j++ +"' onclick='toggle(" + i++ + ")'>Play</button></div>";
-
-            
-            });
-
-            
+            });       
     }
-
-    
-                
-    //console.log(trackList);
 }

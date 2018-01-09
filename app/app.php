@@ -20,7 +20,7 @@
 </head>
 <body onload="populate()">
     <header>
-        <a href="index.php">
+        <a href="javascript:populate()">
             <svg class="logo" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 372.97 338.15">
                 <defs>
                     <linearGradient id="linear-gradient" x1="42.68" y1="275.79" x2="284.68" y2="132.79" gradientUnits="userSpaceOnUse">
