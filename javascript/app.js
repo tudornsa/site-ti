@@ -38,6 +38,10 @@ function performSearch(){
 
 function onSearch(event) {
     event.preventDefault();
+
+    //refresh flag
+    flag = null;
+
     document.getElementById("content").style.paddingLeft = "50px";
     document.getElementById("content").style.paddingRight = "30px";
     //TODO: if nothing found, say so
@@ -142,6 +146,10 @@ function toggle(i) { //Press play/pause
 }
 
 function populate(){
+    //refresh trackList and flag
+    flag = null;
+    trackList = [];
+
     var trackId = [155621254, 156613180, 97278798, 174476240, 88038665, 60289612, 244894351, 195728711, 348605798, 243703866, 300216295, 178043838];
     var i = 0, j = 0;
     //document.getElementById("content").innerHTML = "";//Delete all previous content
