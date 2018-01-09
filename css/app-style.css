@@ -10,20 +10,43 @@ body{
     min-height:100%;
 }
 
-#logout-a{
-    position: absolute;
-    left: 102px;
-    text-decoration: none;
+#header{
+    position: relative;
 }
-
-#logout-btn{
-    background-color: transparent;
+#logout-ul{
+    margin: 0;
+    padding: 0;
+}
+#logout-ul>li{
+    display: inline-block;
+    margin-right: 25px;
+    list-style-type: none;
+    position: absolute;
+    top: 0;
+    left: 102px;
+    z-index: 2;
+}
+#logout-ul>li>a{
+    display: block;
     width: 80px;
     color: white;
     text-decoration: none;
     padding: 30px 10px 28px;
-    cursor: pointer;
-    border: 0;
+}
+#logout-ul>li>a::before{
+    content: "";
+    display: block;
+    width: 0%;
+    height: 2px;
+    /*background-color: rgb(202, 34, 232);*/
+    background-color: white;
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    transition: all ease-in-out 250ms;
+}
+#logout-ul>li>a:hover::before{
+    width: 100%;
 }
 
 #user{

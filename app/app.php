@@ -47,7 +47,10 @@
             </form>
         </nav>
         
-        <a id="logout-a" href='api/logout.php'><input id="logout-btn" type='button' value='Log Out'/></a>
+        <ul id="logout-ul">
+            <li><a href='api/logout.php' role="button">Log Out</a></li>
+        </ul>
+        
         <?php
             echo "<h4 id='user'>".ucfirst($_SESSION['user'])."</h4>";
         ?>
