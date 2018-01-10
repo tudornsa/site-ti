@@ -192,6 +192,7 @@ function toggle(i) { //Press play/pause
 function populate(){
     trackList = [];
     flag = 999999; //ceva ce nu e null
+    searchP = null;
     var trackId = [155621254, 156613180, 97278798, 174476240, 88038665, 60289612, 244894351, 195728711, 348605798, 243703866, 300216295, 178043838];
     var i = 0, j = 0;
     document.getElementById("content").innerHTML = "";//Delete all previous content
