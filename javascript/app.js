@@ -9,7 +9,9 @@ var player = null;
 var flag = null;
 
 var trackList = []; //List of tracks
-var searched = false; //Flag to check if search was performed
+var current = null; //track currently playing
+var searched = false; //searched value to check if search is the same
+var searchP = null;
 
 
 function performSearch(){
@@ -38,31 +40,34 @@ function performSearch(){
 
 function onSearch(event) {
     event.preventDefault();
+    if(searchP != document.getElementById("search-param").value){
+        searchP = document.getElementById("search-param").value;
+        //restart flag
+        flag = null;
 
-    //refresh flag
-    flag = null;
-
-    document.getElementById("content").style.paddingLeft = "50px";
-    document.getElementById("content").style.paddingRight = "30px";
-    //TODO: if nothing found, say so
-    if(searched == false){ //first search performed, so nothing to get rid of
-        //Clear initial content
-        document.getElementById("content").innerHTML = "";
-        performSearch();
-        searched = true;
-    }else{//Searched at least once, so must clear previos search results in order to get the new ones
-        var node = document.getElementById("content");//selects the parent div(that contains result section)
-        flag = null;//resets flag
-        player = null;//resets player
-        //Clear the response section
-        while(node.firstChild){//while node has a child
-            node.removeChild(node.firstChild);//remove the first child
+        document.getElementById("content").style.paddingLeft = "50px";
+        document.getElementById("content").style.paddingRight = "30px";
+        //TODO: if nothing found, say so
+        if(searched == false){ //first search performed, so nothing to get rid of
+            //Clear initial content
+            document.getElementById("content").innerHTML = "";
+            performSearch();
+            searched = true;
+        }else{//Searched at least once, so must clear previos search results in order to get the new ones
+            var node = document.getElementById("content");//selects the parent div(that contains result section)
+            flag = null;//resets flag
+            player = null;//resets player
+            //Clear the response section
+            while(node.firstChild){//while node has a child
+                node.removeChild(node.firstChild);//remove the first child
+            }
+            performSearch();
         }
-        performSearch();
     }
+    
 }
 
-function addFooter(artwork, title, id){
+function addFooter(artwork, title, i){
     document.getElementById("player").style.height = "100px";
     document.getElementById("player").innerHTML = "";
 
@@ -73,12 +78,48 @@ function addFooter(artwork, title, id){
     document.getElementById("player").innerHTML = 
     "<img src='"+ artwork +"' id='avatar'/>" +
     "<h5 id='title'>"+ title +"</h5>" + 
-    "<button id='footer-play-btn' onclick='toggle("+ id + ")'></button>";
+    "<button id='footer-play-btn' onclick='togglePlayer("+ i +")'>Pause</button>";
+}
+
+function togglePlayer(i){
+    if(current != null){
+        if(document.getElementById("footer-play-btn").textContent == "Play"){ 
+            SC.stream('/tracks/' + current.id).then(function(stream){
+                if(flag != null && flag != 999999){
+                    document.getElementById("play-" + i).textContent = "Pause";
+                    document.getElementById("play-" + i).style.background = "url('imagini/icons/pause-btn.png') no-repeat center center";
+                    document.getElementById("play-" + i).style.backgroundSize = "70px";
+                }
+
+                document.getElementById("footer-play-btn").textContent = "Pause";
+                document.getElementById("footer-play-btn").style.background = "url('imagini/icons/pause-btn.png') no-repeat center center";
+                document.getElementById("footer-play-btn").style.backgroundSize = "50px";
+
+                player.play();
+            });
+        }else if(document.getElementById("footer-play-btn").textContent == "Pause"){
+            SC.stream('/tracks/' + current.id).then(function(stream){
+                if(flag != null && flag != 999999){
+                    document.getElementById("play-" + i).textContent = "Play";
+                    document.getElementById("play-" + i).style.background = "url('imagini/icons/play-btn.png') no-repeat center center";
+                    document.getElementById("play-" + i).style.backgroundSize = "70px";
+                }
+                
+
+                document.getElementById("footer-play-btn").textContent = "Play";
+                document.getElementById("footer-play-btn").style.background = "url('imagini/icons/play-btn.png') no-repeat center center";
+                document.getElementById("footer-play-btn").style.backgroundSize = "50px";
+
+                player.pause();
+            });
+        }
+    }
 }
 
 function toggle(i) { //Press play/pause
     var artwork = trackList[i].artwork_url;
     var title = trackList[i].title;
+    current = trackList[i];
 
     if(player == null){//First time you press play, creates new player
         SC.stream('/tracks/' + trackList[i].id).then(function(stream){
@@ -104,16 +145,16 @@ function toggle(i) { //Press play/pause
                 buttons[j].textContent = "Play";
                 buttons[j].style.background = "url('imagini/icons/play-btn.png') no-repeat center center";
                 buttons[j].style.backgroundSize = "70px";
-                
             }
         }
+        addFooter(artwork, title, i);
         //Create new player for the new song
         SC.stream('/tracks/' + trackList[i].id).then(function(stream){
             document.getElementById("play-" + i).textContent = "Pause";
             document.getElementById("play-" + i).style.background = "url('imagini/icons/pause-btn.png') no-repeat center center";
             document.getElementById("play-" + i).style.backgroundSize = "70px";
 
-            addFooter(artwork, title, i);
+            /*addFooter(artwork, title, i);*/
             
             flag = i;//set flag to new button
             player = stream;
@@ -125,9 +166,11 @@ function toggle(i) { //Press play/pause
             document.getElementById("play-" + i).textContent = "Pause";
             document.getElementById("play-" + i).style.background = "url('imagini/icons/pause-btn.png') no-repeat center center";
             document.getElementById("play-" + i).style.backgroundSize = "70px";
-
+/*
+            document.getElementById("footer-play-btn").textContent = "Pause";
             document.getElementById("footer-play-btn").style.background = "url('imagini/icons/pause-btn.png') no-repeat center center";
             document.getElementById("footer-play-btn").style.backgroundSize = "50px";
+            */
 
 
             player.play();
@@ -136,6 +179,7 @@ function toggle(i) { //Press play/pause
             document.getElementById("play-" + i).style.background = "url('imagini/icons/play-btn.png') no-repeat center center";
             document.getElementById("play-" + i).style.backgroundSize = "70px";
 
+            document.getElementById("footer-play-btn").textContent = "Play";
             document.getElementById("footer-play-btn").style.background = "url('imagini/icons/play-btn.png') no-repeat center center";
             document.getElementById("footer-play-btn").style.backgroundSize = "50px";
             
@@ -146,13 +190,11 @@ function toggle(i) { //Press play/pause
 }
 
 function populate(){
-    //refresh trackList and flag
-    flag = null;
     trackList = [];
-
+    flag = 999999; //ceva ce nu e null
     var trackId = [155621254, 156613180, 97278798, 174476240, 88038665, 60289612, 244894351, 195728711, 348605798, 243703866, 300216295, 178043838];
     var i = 0, j = 0;
-    //document.getElementById("content").innerHTML = "";//Delete all previous content
+    document.getElementById("content").innerHTML = "";//Delete all previous content
     document.getElementById("content").innerHTML = "<h2>Recommended for you</h2>";
     for(var index = 0; index < trackId.length; index++){
         SC.get('/tracks/' + trackId[index], {
@@ -174,3 +216,4 @@ function populate(){
             });       
     }
 }
+
