@@ -162,11 +162,11 @@ function toggle(i) { //Press play/pause
             document.getElementById("play-" + i).textContent = "Pause";
             document.getElementById("play-" + i).style.background = "url('imagini/icons/pause-btn.png') no-repeat center center";
             document.getElementById("play-" + i).style.backgroundSize = "70px";
-/*
+
             document.getElementById("footer-play-btn").textContent = "Pause";
             document.getElementById("footer-play-btn").style.background = "url('imagini/icons/pause-btn.png') no-repeat center center";
             document.getElementById("footer-play-btn").style.backgroundSize = "50px";
-            */
+            
 
 
             player.play();
