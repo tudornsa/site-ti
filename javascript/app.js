@@ -18,12 +18,9 @@ function performSearch(){
     SC.get('/tracks', {
         q: document.getElementById("search-param").value // gets tracks using search word from user
     }).then(function(tracks){
-        //console.log("Search value: " + document.getElementById("input").value);
-        console.log(tracks);
         var i = 0, j = 0;
         trackList = tracks; //Put tracks in global variable
         tracks.forEach(function(item){
-            //console.log(item.title);
           
             var artwork = item.artwork_url;
             var title = item.title;
@@ -139,7 +136,6 @@ function toggle(i) { //Press play/pause
         //Select all buttons that are on wrong state(pause) and set them to play
         var buttons = document.getElementsByTagName("button"); //!!!Careful if you add other buttons add class to this one!!!!
         for(var j=0; j< buttons.length; j++){
-            //console.log(buttons[j]);
             if(buttons[j].textContent == "Pause"){
                 //TODO: FIX THIS!!!!
                 buttons[j].textContent = "Play";
