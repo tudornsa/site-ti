@@ -117,7 +117,6 @@ function toggle(i) { //Press play/pause
     var artwork = trackList[i].artwork_url;
     var title = trackList[i].title;
     current = trackList[i];
-    console.log(current);
 
     if(player == null){//First time you press play, creates new player
         SC.stream('/tracks/' + trackList[i].id).then(function(stream){
@@ -201,7 +200,6 @@ function populate(){
 
             var artwork = track.artwork_url;
             var title = track.title;
-            console.log(track.title);
 
             //add to global track list
             trackList.push(track);
