@@ -21,7 +21,7 @@ function closeWindow(){
     setTimeout(function(){
         content.style.visibility = "hidden";
         content.innerHTML="";
-    }, 300);
+    }, 200);
 }
 
 function submitLogin(){

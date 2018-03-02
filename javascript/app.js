@@ -26,7 +26,7 @@ function performSearch(){
             var title = item.title;
 
             if(artwork == null){
-                artwork = "imagini/logo/PNG/logo.png";
+                artwork = "imagini/logo/PNG/logo-5.png";
             }
             
             //Adds div tags with data and a button to play or pause song
@@ -69,7 +69,7 @@ function addFooter(artwork, title, i){
     document.getElementById("player").innerHTML = "";
 
     if(artwork == null){
-        artwork = "imagini/logo/PNG/logo.png";
+        artwork = "imagini/logo/PNG/logo-5.png";
     }
     //add footer player
     document.getElementById("player").innerHTML = 
@@ -205,7 +205,7 @@ function populate(){
             trackList.push(track);
     
             if(artwork == null){
-                artwork = "imagini/logo/PNG/logo.png";
+                artwork = "imagini/logo/PNG/logo-5.png";
             }
                 
             //Adds div tags with data and a button to play or pause song
