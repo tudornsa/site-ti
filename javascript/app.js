@@ -117,6 +117,7 @@ function toggle(i) { //Press play/pause
     var artwork = trackList[i].artwork_url;
     var title = trackList[i].title;
     current = trackList[i];
+    console.log(current);
 
     if(player == null){//First time you press play, creates new player
         SC.stream('/tracks/' + trackList[i].id).then(function(stream){
@@ -189,7 +190,7 @@ function populate(){
     trackList = [];
     flag = 999999; //ceva ce nu e null
     searchP = null;
-    var trackId = [155621254, 156613180, 97278798, 174476240, 88038665, 60289612, 244894351, 195728711, 348605798, 243703866, 300216295, 178043838];
+    var trackId = [155621254, 156613180, 97278798, 174476240, 88038665, 60289612, 244894351, 195728711, 132925029, 243703866, 300216295, 178043838];//tracks on user landing page
     var i = 0, j = 0;
     document.getElementById("content").innerHTML = "";//Delete all previous content
     document.getElementById("content").innerHTML = "<h2>Recommended for you</h2>";
@@ -200,6 +201,7 @@ function populate(){
 
             var artwork = track.artwork_url;
             var title = track.title;
+            console.log(track.title);
 
             //add to global track list
             trackList.push(track);
